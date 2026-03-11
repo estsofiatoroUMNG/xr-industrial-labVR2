@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>XR Industrial Lab - Fases 1 y 2</title>
+  <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
+</head>
+<body>
+  <!-- FASE 1: Primitivas básicas -->
+  <a-scene id="fase1" visible>
+    <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
+    <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
+    <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
+    <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
+    <a-sky color="#ECECEC"></a-sky>
+  </a-scene>
+
+  <!-- FASE 2: BANDA TRANSPORTADORA (Parte C) -->
+  <a-scene id="fase2">
+    <a-plane position="0 0 -5" rotation="-90 0 0" width="12" height="8" color="#555555" material="repeat: 12 8"></a-plane>
+    <a-box position="-3 0.6 -2" width="7" height="1.2" depth="0.3" color="#777777"></a-box>
+    <a-box position="-3 1.4 -2" width="6.5" height="0.2" depth="0.15" color="#222222"></a-box>
+    <a-cylinder position="-5.5 1 -2" radius="0.12" height="1.8" color="#666"></a-cylinder>
+    <a-cylinder position="1.5 1 -2" radius="0.12" height="1.8" color="#666" rotation="0 0 90"></a-cylinder>
+    <a-box position="-5.5 2.2 -2" width="0.4" height="0.5" depth="0.4" color="#444"></a-box>
+    <a-box position="1.5 2.2 -2" width="0.4" height="0.5" depth="0.4" color="#444"></a-box>
+    <a-box position="-2 1.8 -2" width="1" height="0.6" depth="0.6" color="#CC0000" 
+           animation="property: position.x; from: -5.5; to: 2; dur: 12000; loop: true; dir: alternate"></a-box>
+    <a-box position="4 1.5 -1" width="0.3" height="2.5" depth="0.3" color="#888"></a-box>
+    <a-box position="4.8 2.8 -1" width="1.2" height="0.3" depth="0.3" color="#FF8800" rotation="0 0 30"></a-box>
+    <a-cylinder position="0 4 0" radius="0.15" height="3.5" color="#CCC"></a-cylinder>
+    <a-sphere position="0 3.7 0" radius="0.3" color="#FFFF99" light="type: ambient; intensity: 0.6"></a-sphere>
+    <a-sky color="#A9C4D9"></a-sky>
+  </a-scene>
+
+  <!-- BOTONES PARA CAMBIAR -->
+  <button onclick="cambiarEscena('fase1')" style="position:absolute;top:10px;left:10px;z-index:1000;padding:10px;background:#4CAF50;color:white;border:none;border-radius:5px;">Fase 1 Básica</button>
+  <button onclick="cambiarEscena('fase2')" style="position:absolute;top:10px;left:200px;z-index:1000;padding:10px;background:#FF5722;color:white;border:none;border-radius:5px;">Fase 2 Banda Industrial</button>
+
+  <script>
+    function cambiarEscena(id) {
+      document.getElementById('fase1').setAttribute('visible', id === 'fase1');
+      document.getElementById('fase2').setAttribute('visible', id === 'fase2');
+    }
+  </script>
+</body>
+</html>
